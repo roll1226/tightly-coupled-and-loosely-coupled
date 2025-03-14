@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HighCoupling\NotificationController;
+// use App\Http\Controllers\HighCoupling\NotificationController;
+use App\Http\Controllers\LowCoupling\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,10 @@ Route::get('/send', function () {
     return view('send');
 });
 
-Route::post('/high-coupling/send-notification', [NotificationController::class, 'send'])->name('send.high-coupling.notification');
+Route::get('/send2', function () {
+    return view('send2');
+});
+
+// Route::post('/high-coupling/send-notification', [NotificationController::class, 'send'])->name('send.high-coupling.notification');
+
+Route::post('/low-coupling/send-notification', [NotificationController::class, 'send'])->name('send.low-coupling.notification');
