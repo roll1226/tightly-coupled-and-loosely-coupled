@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\HighCoupling\NotificationService;
 use Illuminate\Http\Request;
 
-class NotificationController extends Controller
+class HighCouplingNotificationController extends Controller
 {
     private NotificationService $notificationService;
 

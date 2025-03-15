@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\LowCoupling\NotificationService;
 use Illuminate\Http\Request;
 
-class NotificationController extends Controller
+class LowCouplingNotificationController extends Controller
 {
     private NotificationService $notification;
 
