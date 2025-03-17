@@ -20,11 +20,11 @@ Route::get('/', function () {
 });
 
 Route::get('/send-for-high-coupling', function () {
-    return view('send-for-high-coupling');
+    return view('highCoupling.send');
 });
 
 Route::get('/send-for-low-coupling', function () {
-    return view('send-for-low-coupling');
+    return view('lowCoupling.send');
 });
 
 Route::post('/high-coupling/send-notification', [HighCouplingNotificationController::class, 'send'])->name('send.high-coupling.notification');
