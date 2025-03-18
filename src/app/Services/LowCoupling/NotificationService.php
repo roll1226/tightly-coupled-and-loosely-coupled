@@ -2,7 +2,7 @@
 
 namespace App\Services\LowCoupling;
 
-use App\Interfaces\NotifierInterface;
+use App\Services\Interfaces\NotifierInterface;
 
 class NotificationService
 {

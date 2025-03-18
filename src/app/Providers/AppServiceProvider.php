@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Services\LowCoupling\NotificationService;
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\NotifierInterface;
+use App\Services\Interfaces\NotifierInterface;
 use App\Services\LowCoupling\EmailNotifier;
 use App\Services\LowCoupling\SMSNotifier;
 
