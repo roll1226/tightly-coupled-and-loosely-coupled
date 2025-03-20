@@ -27,6 +27,12 @@ Route::get('/send-for-low-coupling', function () {
     return view('lowCoupling.send');
 });
 
-Route::post('/high-coupling/send-notification', [HighCouplingNotificationController::class, 'send'])->name('send.high-coupling.notification');
+Route::post(
+    '/high-coupling/send-notification',
+    [HighCouplingNotificationController::class, 'send']
+)->name('send.high-coupling.notification');
 
-Route::post('/low-coupling/send-notification', [LowCouplingNotificationController::class, 'send'])->name('send.low-coupling.notification');
+Route::post(
+    '/low-coupling/send-notification',
+    [LowCouplingNotificationController::class, 'send']
+)->name('send.low-coupling.notification');
