@@ -17,20 +17,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
-        $this->app->bind(
+        $this->app->singleton(
             NotifierInterface::class,
             SMSNotifier::class
         );
 
-        $this->app->bind(NotificationService::class, function ($app) {
-            return new NotificationService($app->make(NotifierInterface::class));
-        });
-
-        $this->app->bind(
+        $this->app->singleton(
             NotificationRepositoryInterface::class,
             NotificationRepository::class
-        )
+        );
     }
 
     /**
