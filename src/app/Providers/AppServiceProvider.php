@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Services\Interfaces\NotifierInterface;
 use App\Services\LowCoupling\EmailNotifier;
 use App\Services\LowCoupling\SMSNotifier;
+use App\Repositories\NotificationRepository;
+use App\Repositories\Interfaces\NotificationRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(NotificationService::class, function ($app) {
             return new NotificationService($app->make(NotifierInterface::class));
         });
+
+        $this->app->bind(
+            NotificationRepositoryInterface::class,
+            NotificationRepository::class
+        )
     }
 
     /**
