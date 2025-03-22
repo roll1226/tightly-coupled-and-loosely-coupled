@@ -19,20 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/send-for-high-coupling', function () {
-    return view('highCoupling.send');
-});
+Route::prefix('high-coupling')
+    ->name('high-coupling.')
+    ->controller(HighCouplingNotificationController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/send', 'send')->name('send');
+    });
 
-Route::get('/send-for-low-coupling', function () {
-    return view('lowCoupling.send');
-});
-
-Route::post(
-    '/high-coupling/send-notification',
-    [HighCouplingNotificationController::class, 'send']
-)->name('send.high-coupling.notification');
-
-Route::post(
-    '/low-coupling/send-notification',
-    [LowCouplingNotificationController::class, 'send']
-)->name('send.low-coupling.notification');
+Route::prefix('low-coupling')
+    ->name('low-coupling.')
+    ->controller(LowCouplingNotificationController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/send', 'send')->name('send');
+    });

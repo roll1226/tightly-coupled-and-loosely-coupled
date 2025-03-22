@@ -3,7 +3,7 @@
         <title>Send Email</title>
     </head>
     <body>
-        <form action="{{ route('send.high-coupling.notification') }}" method="post">
+        <form action="{{ route('high-coupling.send') }}" method="post">
             @csrf
             <input type="text" name="message" placeholder="Message">
             <button type="submit">Send Email</button>

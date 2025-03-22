@@ -15,6 +15,11 @@ class LowCouplingNotificationController extends Controller
         $this->notification = $notificationService;
     }
 
+    public function index()
+    {
+        return view('lowCoupling.send');
+    }
+
     public function send(Request $request)
     {
         $message = $request->input('message');

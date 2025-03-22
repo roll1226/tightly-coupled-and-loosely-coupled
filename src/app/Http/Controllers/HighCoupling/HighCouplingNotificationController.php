@@ -15,6 +15,11 @@ class HighCouplingNotificationController extends Controller
         $this->notificationService = $notificationService;
     }
 
+    public function index()
+    {
+        return view('highCoupling.send');
+    }
+
     public function send(Request $request)
     {
         $message = $request->input('message');
