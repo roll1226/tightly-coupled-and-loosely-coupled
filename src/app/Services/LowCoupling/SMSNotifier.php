@@ -8,6 +8,6 @@ class SMSNotifier implements NotifierInterface
 {
     public function sendNotification(string $message): void
     {
-        echo "Sending SMS: $message\n";
+        echo "Sending SMS: $message";
     }
 }

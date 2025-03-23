@@ -1,6 +1,5 @@
 <html>
-    <head>
-        <title>Send Email</title>
+    <head> <title>Send Email</title>
     </head>
     <body>
         <form action="{{ route('low-coupling.send') }}" method="post">
