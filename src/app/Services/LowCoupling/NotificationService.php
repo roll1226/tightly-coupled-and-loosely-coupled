@@ -3,8 +3,9 @@
 namespace App\Services\LowCoupling;
 
 use App\Services\Interfaces\NotifierInterface;
+use App\Services\Interfaces\NotificationServiceInterface;
 
-class NotificationService
+class NotificationService implements NotificationServiceInterface
 {
     private NotifierInterface $notifier;
 
