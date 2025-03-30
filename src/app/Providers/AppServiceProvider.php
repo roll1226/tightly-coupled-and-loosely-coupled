@@ -4,11 +4,9 @@ namespace App\Providers;
 
 use App\Services\LowCoupling\NotificationService;
 use Illuminate\Support\ServiceProvider;
-use App\Services\Interfaces\NotifierInterface;
-use App\Services\LowCoupling\EmailNotifier;
-use App\Services\LowCoupling\SMSNotifier;
-use App\Repositories\NotificationRepository;
-use App\Repositories\Interfaces\NotificationRepositoryInterface;
+use App\Repositories\Interfaces\NotifierRepositoryInterface;
+use App\Repositories\EmailNotifierRepository;
+use App\Repositories\SMSNotifierRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,13 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(
-            NotifierInterface::class,
-            SMSNotifier::class
-        );
-
-        $this->app->singleton(
-            NotificationRepositoryInterface::class,
-            NotificationRepository::class
+            NotifierRepositoryInterface::class,
+            SMSNotifierRepository::class
         );
     }
 

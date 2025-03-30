@@ -2,20 +2,20 @@
 
 namespace App\Services\LowCoupling;
 
-use App\Services\Interfaces\NotifierInterface;
 use App\Services\Interfaces\NotificationServiceInterface;
+use App\Repositories\Interfaces\NotifierRepositoryInterface;
 
 class NotificationService implements NotificationServiceInterface
 {
-    private NotifierInterface $notifier;
+    private NotifierRepositoryInterface $notifierRepository;
 
-    public function __construct(NotifierInterface $notifier)
+    public function __construct(NotifierRepositoryInterface $notifierRepository)
     {
-        $this->notifier = $notifier;
+        $this->notifierRepository = $notifierRepository;
     }
 
     public function notifyUser(string $message): void
     {
-        $this->notifier->sendNotification($message);
+        $this->notifierRepository->sendNotification($message);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interfaces;
 
-interface NotificationRepositoryInterface
+interface NotifierRepositoryInterface
 {
     public function sendNotification(string $message): void;
 }
