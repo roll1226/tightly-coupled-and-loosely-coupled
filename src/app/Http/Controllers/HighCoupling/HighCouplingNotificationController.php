@@ -8,11 +8,9 @@ use Illuminate\Http\Request;
 
 class HighCouplingNotificationController extends Controller
 {
-    private NotificationService $notificationService;
-
-    public function __construct(NotificationService $notificationService)
+    public function __construct()
     {
-        $this->notificationService = $notificationService;
+        $this->notificationService = new NotificationService();
     }
 
     public function index()
@@ -23,6 +21,6 @@ class HighCouplingNotificationController extends Controller
     public function send(Request $request)
     {
         $message = $request->input('message');
-        return $this->notificationService->sendNotification($message);
+        return $this->notificationService->sendEmail($message);
     }
 }

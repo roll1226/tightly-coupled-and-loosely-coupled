@@ -7,15 +7,12 @@ use App\Services\HighCoupling\NotificationService;
 
 class NotificationServiceTest extends TestCase
 {
-    public function testSendNotification()
+    public function test_sendNotification()
     {
-        // NotificationServiceのインスタンスを作成
         $notificationService = new NotificationService();
 
-        // 出力をキャプチャして検証
         $this->expectOutputString("Sending Email: Test message");
 
-        // sendNotificationメソッドを呼び出し
-        $notificationService->sendNotification('Test message');
+        $notificationService->sendEmail('Test message');
     }
 }
