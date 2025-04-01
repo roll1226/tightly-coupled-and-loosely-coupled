@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton(
             NotifierRepositoryInterface::class,
-            SMSNotifierRepository::class
+            EmailNotifierRepository::class
         );
     }
 
