@@ -20,4 +20,38 @@ class NotificationServiceTest extends TestCase
 
         $notificationService->notifyUser('Test message');
     }
+
+    public function testNotifyUserWithEmptyMessage()
+    {
+        $notifierMock = $this->createMock(NotifierRepositoryInterface::class);
+
+        $notificationService = new NotificationService($notifierMock);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Message cannot be empty');
+
+        $notificationService->notifyUser('');
+    }
+    public function testNotifyUserWithWhitespaceMessage()
+    {
+        $notifierMock = $this->createMock(NotifierRepositoryInterface::class);
+
+        $notificationService = new NotificationService($notifierMock);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Message cannot be empty');
+
+        $notificationService->notifyUser('   ');
+    }
+    public function testNotifyUserWithNullMessage()
+    {
+        $notifierMock = $this->createMock(NotifierRepositoryInterface::class);
+
+        $notificationService = new NotificationService($notifierMock);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Message cannot be null');
+
+        $notificationService->notifyUser(null);
+    }
 }
