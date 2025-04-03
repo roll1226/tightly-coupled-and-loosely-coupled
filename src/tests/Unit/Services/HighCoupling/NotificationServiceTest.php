@@ -15,4 +15,32 @@ class NotificationServiceTest extends TestCase
 
         $notificationService->sendEmail('Test message');
     }
+
+    public function test_sendNotificationWithEmptyMessage()
+    {
+        $notificationService = new NotificationService();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Message cannot be empty');
+
+        $notificationService->sendEmail('');
+    }
+    public function test_sendNotificationWithWhitespaceMessage()
+    {
+        $notificationService = new NotificationService();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Message cannot be empty');
+
+        $notificationService->sendEmail('   ');
+    }
+    public function test_sendNotificationWithNullMessage()
+    {
+        $notificationService = new NotificationService();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Message cannot be null');
+
+        $notificationService->sendEmail(null);
+    }
 }
