@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class EmailNotifierRepositoryTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     */
     public function test_email(): void
     {
         $emailNotifier = new EmailNotifierRepository();

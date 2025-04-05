@@ -7,9 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class SMSNotifierRepositoryTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     */
     public function test_sms(): void
     {
         $smsNotifier = new SMSNotifierRepository();
