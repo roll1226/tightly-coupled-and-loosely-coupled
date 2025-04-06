@@ -25,7 +25,6 @@ class NotificationService implements NotificationServiceInterface
             throw new InvalidArgumentException('Message cannot be empty');
         }
 
-        // 通知を送信
         $this->notifierRepository->sendNotification($message);
     }
 }
