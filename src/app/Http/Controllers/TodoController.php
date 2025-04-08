@@ -13,6 +13,8 @@ class TodoController extends Controller
     public function index()
     {
         //
+        $todos = Todo::all();
+        return view('todos.index', compact('todos'));
     }
 
     /**
@@ -21,6 +23,7 @@ class TodoController extends Controller
     public function create()
     {
         //
+        return view('todos.create');
     }
 
     /**
@@ -29,6 +32,15 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+        $todo = new Todo();
+        $todo->title = $request->input('title');
+        $todo->description = $request->input('description');
+        $todo->save();
+        return redirect()->route('todos.index')->with('success', 'Todo created successfully.');
     }
 
     /**
@@ -37,6 +49,7 @@ class TodoController extends Controller
     public function show(Todo $todo)
     {
         //
+        return view('todos.show', compact('todo'));
     }
 
     /**
@@ -45,6 +58,7 @@ class TodoController extends Controller
     public function edit(Todo $todo)
     {
         //
+        return view('todos.edit', compact('todo'));
     }
 
     /**
@@ -53,6 +67,14 @@ class TodoController extends Controller
     public function update(Request $request, Todo $todo)
     {
         //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+        $todo->title = $request->input('title');
+        $todo->description = $request->input('description');
+        $todo->save();
+        return redirect()->route('todos.index')->with('success', 'Todo updated successfully.');
     }
 
     /**
@@ -61,5 +83,7 @@ class TodoController extends Controller
     public function destroy(Todo $todo)
     {
         //
+        $todo->delete();
+        return redirect()->route('todos.index')->with('success', 'Todo deleted successfully.');
     }
 }
